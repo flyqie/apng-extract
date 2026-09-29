@@ -1,0 +1,88 @@
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0 auto; padding: 40px clamp(16px, 4vw, 48px); font-family: "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  background: #f5f6f8; color: #1f2328; max-width: 1200px;
+}
+@media (max-width: 640px) {
+  body { padding: 20px 16px; }
+  h1 { font-size: 20px; }
+  .sub { font-size: 13px; margin-bottom: 20px; }
+  .dropzone { padding: 32px 16px; font-size: 14px; }
+  .panel { padding: 18px; }
+  .meta { padding: 12px 14px; font-size: 12px; line-height: 1.7; }
+  .frames { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+}
+@media (max-width: 400px) {
+  .frames { grid-template-columns: 1fr; }
+}
+@media (prefers-color-scheme: dark) {
+  body { background: #16181d; color: #e6e8eb; }
+  .frame, .panel { background: #22252c !important; border-color: #3a3f4a !important; }
+  .frame { box-shadow: 0 1px 4px rgba(0,0,0,.4) !important; }
+  button { background: #3a5ccc !important; }
+  button.secondary { background: #33373f !important; }
+  .meta { background: #1b1e24 !important; }
+  .dropzone { border-color: #4a5060 !important; }
+  .lightbox { background: rgba(10,11,14,.88) !important; }
+}
+h1 { font-size: 24px; margin: 0 0 8px; }
+.sub { color: #6a7280; margin: 0 0 28px; font-size: 14px; line-height: 1.7; }
+.dropzone {
+  border: 2px dashed #b6bcc6; border-radius: 12px; padding: 48px; text-align: center;
+  cursor: pointer; background: #fff; transition: border-color .15s, background .15s; font-size: 15px;
+}
+.dropzone:hover, .dropzone.over { border-color: #3a5ccc; background: #eef2fd; }
+.error { color: #c0392b; margin-top: 16px; font-size: 14px; white-space: pre-wrap; }
+.panel { margin-top: 28px; background: #fff; border: 1px solid #dde0e5; border-radius: 12px; padding: 28px; }
+.panel h2 { font-size: 17px; margin: 0 0 16px; }
+.panel h2.section { margin-top: 24px; }
+canvas { image-rendering: pixelated; max-width: 100%; height: auto; background:
+  repeating-conic-gradient(#d8dbe0 0% 25%, #ffffff 0% 50%) 50% / 16px 16px;
+  border: 1px solid #dde0e5; }
+#cover { max-width: 100%; }
+@media (min-width: 641px) {
+  #cover { max-width: 420px; }
+}
+.toolbar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 16px 0 20px; }
+button {
+  border: 0; border-radius: 8px; padding: 9px 18px; font-size: 14px; cursor: pointer;
+  background: #3a5ccc; color: #fff; font-family: inherit;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+}
+button:disabled { opacity: .55; cursor: default; }
+@media (max-width: 640px) {
+  button { padding: 10px 16px; }
+}
+button:hover { filter: brightness(1.08); }
+button.secondary { background: #6b7280; }
+label.toggle { font-size: 14px; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+@media (max-width: 640px) {
+  label.toggle { font-size: 13px; }
+  .toolbar { gap: 10px; margin: 12px 0 16px; }
+}
+input[type="checkbox"] { width: 16px; height: 16px; accent-color: #3a5ccc; }
+.frames { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.frame { background: #fff; border: 1px solid #dde0e5; border-radius: 10px; padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06); display: flex; flex-direction: column; gap: 12px; }
+.frame .thumb { background:
+  repeating-conic-gradient(#d8dbe0 0% 25%, #ffffff 0% 50%) 50% / 12px 12px;
+  border: 1px solid #e5e8ec; align-self: center; max-width: 100%; cursor: zoom-in; }
+.frame .name { font-size: 14px; font-weight: 600; }
+.frame .info { font-size: 12px; color: #6a7280; line-height: 1.7; word-break: break-all; }
+.meta { font-size: 13px; background: #f0f2f5; border-radius: 8px; padding: 16px 18px;
+  font-family: Consolas, monospace; line-height: 1.9; margin-bottom: 16px; }
+/* 点击放大查看 */
+.lightbox {
+  position: fixed; inset: 0; background: rgba(20,22,26,.85); z-index: 100;
+  display: flex; flex-direction: column; gap: 16px; align-items: center; justify-content: center;
+  cursor: zoom-out; padding: 16px;
+}
+.lightbox canvas {
+  image-rendering: pixelated; max-width: 92vw; max-height: 76vh; background:
+  repeating-conic-gradient(#d8dbe0 0% 25%, #ffffff 0% 50%) 50% / 24px 24px;
+  box-shadow: 0 8px 40px rgba(0,0,0,.5); border-radius: 4px;
+}
+.lightbox .caption { color: #fff; font-size: 14px; text-align: center; word-break: break-all; }
+.hidden { display: none; }
